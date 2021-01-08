@@ -20,7 +20,7 @@ class PriceCalculator {
             }
 
             "watsons" -> {
-                if (unitPrice * amount * 0.88 > 1000) {
+                if (unitPrice * amount * 0.88 >= 1000) {
                     unitPrice * amount * 0.88 * 0.8
                 } else {
                     unitPrice * amount * 0.88
