@@ -1,26 +1,16 @@
+import java.lang.IllegalArgumentException
+
 class PriceCalculator {
 
     fun calculatePrice(store: String, unitPrice: Int, amount: Int): Number {
-        val storeStrategy: StoreStrategy
+        return getStore(store).price(unitPrice, amount)
+    }
 
-        return when (store) {
-            "7-11" -> {
-                storeStrategy = SevenEleven()
-                storeStrategy.price(unitPrice, amount)
-            }
-            "carrefour" -> {
-                storeStrategy = Carrefour()
-                storeStrategy.price(unitPrice, amount)
-            }
-            "pchome" -> {
-                storeStrategy  = PcHome()
-                storeStrategy.price(unitPrice, amount)
-            }
-            "watsons" -> {
-                storeStrategy = Watsons()
-                storeStrategy.price(unitPrice, amount)
-            }
-            else -> 0
-        }
+    private fun getStore(store: String) = when (store) {
+        "7-11" -> SevenEleven()
+        "carrefour" -> Carrefour()
+        "pchome" -> PcHome()
+        "watsons" -> Watsons()
+        else -> throw IllegalArgumentException("Incorrect store name")
     }
 }
