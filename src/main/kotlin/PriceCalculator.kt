@@ -8,7 +8,7 @@ class PriceCalculator {
                 if (amount <= 100) {
                     getPrice(unitPrice, amount) * 0.85
                 } else {
-                    unitPrice * amount * 0.8
+                    getPrice(unitPrice, amount) * 0.8
                 }
             }
             "pchome" -> {
