@@ -25,5 +25,13 @@ class PriceCalculatorTest : FunSpec({
         val sut = PriceCalculator()
         sut.calculatePrice("pchome", 100, 10) shouldBe 900
     }
+    test("watsons: 1 item, unit price 100 should be return 88") {
+        val sut = PriceCalculator()
+        sut.calculatePrice("watsons", 100, 1) shouldBe 88
+    }
+    test("watsons: 10 items, unit price 100 should be return 88") {
+        val sut = PriceCalculator()
+        sut.calculatePrice("watsons", 100, 20) shouldBe 1408
+    }
 
 })
